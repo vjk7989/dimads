@@ -20,6 +20,39 @@
     .fade-leave-to {
       opacity: 0;
     }
+
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      z-index: 9999;
+    }
+
+    /* Left and Right Ads */
+    .left-ad,
+    .right-ad {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      border-radius: 5px;
+      z-index: 9998;
+    }
+
+    .left-ad {
+      left: 0;
+    }
+
+    .right-ad {
+      right: 0;
+    }
   </style>
 </head>
 
@@ -45,6 +78,35 @@
       </div>
     </div>
   </div>
+
+  <!-- Popup Ad for ThirdWeb Social -->
+  <div id="popupAd" class="popup hidden bg-blue-500 text-white">
+    <p class="text-lg font-semibold mb-2">Join ThirdWeb Social!</p>
+    <p>Discover a new way to connect with friends.</p>
+    <button @click="closePopup" class="mt-4 bg-white text-blue-500 px-4 py-2 rounded-lg hover:bg-blue-100">Close</button>
+  </div>
+
+  <!-- Left Ad -->
+  <div class="left-ad bg-yellow-500 text-white p-2">
+    <p>Left Ad Content Here</p>
+  </div>
+
+  <!-- Right Ad -->
+  <div class="right-ad bg-green-500 text-white p-2">
+    <p>Right Ad Content Here</p>
+  </div>
+
+  <script>
+    // Show popup ad after 3 seconds
+    setTimeout(() => {
+      document.getElementById('popupAd').classList.remove('hidden');
+    }, 3000);
+
+    // Close popup ad
+    function closePopup() {
+      document.getElementById('popupAd').classList.add('hidden');
+    }
+  </script>
 </body>
 
 </html>
